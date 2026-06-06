@@ -31,11 +31,7 @@ jobs:
 
       - name: Upload notebook to Databricks
         run: |
-          databricks workspace import \
-            --language PYTHON \
-            --overwrite \
-            pipeline/transform/transform_databricks.py \
-            /licitacoes/transform_licitacoes
+          databricks workspace import --language PYTHON --overwrite pipeline/transform/transform_databricks.py /licitacoes/transform_licitacoes
 
       - name: Run extraction
         env:
