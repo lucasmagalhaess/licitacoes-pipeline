@@ -43,4 +43,5 @@ jobs:
           PORTAL_API_KEY: ${{ secrets.PORTAL_API_KEY }}
         run: python pipeline/extract/extract.py
 
-      echo "Deploy concluido!"
+      - name: Done
+        run: echo "Deploy concluido!"
