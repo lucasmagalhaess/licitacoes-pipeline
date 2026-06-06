@@ -1,0 +1,46 @@
+name: Deploy Licitacoes Pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'pipeline/**'
+
+jobs:
+  deploy:
+    name: Deploy Pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests azure-storage-blob databricks-cli
+
+      - name: Configure Databricks CLI
+        run: |
+          mkdir -p ~/.databrickscfg
+          echo "[DEFAULT]" > ~/.databrickscfg
+          echo "host = https://adb-7405608954459582.2.azuredatabricks.net" >> ~/.databrickscfg
+          echo "token = ${{ secrets.DATABRICKS_TOKEN }}" >> ~/.databrickscfg
+
+      - name: Upload notebook to Databricks
+        run: |
+          databricks workspace import \
+            --language PYTHON \
+            --overwrite \
+            pipeline/transform/transform_databricks.py \
+            /licitacoes/transform_licitacoes
+
+      - name: Run extraction
+        env:
+          AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}
+          PORTAL_API_KEY: ${{ secrets.PORTAL_API_KEY }}
+        run: python pipeline/extract/extract.py
+
+      echo "Deploy concluido!"
