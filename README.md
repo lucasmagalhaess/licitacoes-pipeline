@@ -1,6 +1,6 @@
 # Licitacoes Pipeline — Contratos Públicos Federais na Azure
 
-Pipeline de dados que extrai contratos públicos federais do Portal da Transparência do Governo Federal, aplica medallion architecture com camadas bronze, silver e gold — primeiro projeto do portfólio usando Microsoft Azure com PySpark no Databricks.
+Pipeline de dados que extrai contratos públicos federais do Portal da Transparência do Governo Federal, aplica medallion architecture com camadas bronze, silver e gold.
 
 ## Arquitetura
 
