@@ -35,13 +35,13 @@ Pipeline de dados que extrai contratos públicos federais do Portal da Transpar�
 
 | Serviço | Função | Equivalente AWS | Equivalente GCP |
 |---|---|---|---|
-| Azure Blob Storage | Data Lake bronze e silver | S3 | Cloud Storage |
-| Azure Databricks | PySpark distribuído | EMR | Dataproc |
-| Azure SQL Database | Data Warehouse gold | RDS | Cloud SQL |
-| Azure Key Vault | Credenciais seguras | Secrets Manager | Secret Manager |
-| Azure Data Factory | Orquestração | MWAA | Cloud Composer |
-| GitHub Actions | CI/CD | CodePipeline | Cloud Build |
-| Terraform | Infraestrutura como código | Terraform | Terraform |
+| <u>**Azure Blob Storage**</u> | Data Lake bronze e silver | S3 | Cloud Storage |
+| <u>**Azure Databricks**</u> | <u>**PySpark distribuído**</u> | EMR | Dataproc |
+| <u>**Azure SQL Database**</u> | Data Warehouse gold | RDS | Cloud SQL |
+| <u>**Azure Key Vault**</u> | Credenciais seguras | Secrets Manager | Secret Manager |
+| <u>**Azure Data Factory**</u> | Orquestração | MWAA | Cloud Composer |
+| <u>**GitHub Actions**</u> | CI/CD | CodePipeline | Cloud Build |
+| <u>**Terraform**</u> | Infraestrutura como código | Terraform | Terraform |
 
 ## Medallion Architecture
 
